@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceylinsu | Kişisel Web Sayfası</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #6c5ce7; /* Modern Mor */
+            --secondary-color: #a29bfe;
+            --bg-color: #f9f9f9;
+            --text-color: #2d3436;
+            --card-bg: #ffffff;
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Versiyon Rozeti --- */
+        #version-badge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00cec9; /* Neon turkuaz */
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            border: 1px solid #00cec9;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        #version-badge:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Ana Yapı --- */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* --- Kart Tasarımları --- */
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* --- Sosyal İkonlar --- */
+        .social-links {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--text-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            #version-badge { top: 10px; right: 10px; padding: 3px 10px; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="version-badge">vLoading...</div>
+
+    <header>
+        <h1>Ceylinsu</h1>
+        <p>Geleceği Kodlayan & Tasarlayan</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="card">
+            <h2>Yapay Zeka'nın Gözünden Ceylinsu</h2>
+            <p>
+                Dijital dünyanın sınırlarını keşfetmeye hevesli, GitHub Pages üzerinden kendi alanını inşa edecek kadar cesur ve öğrenmeye açık bir vizyoner. 
+                Sıradan bir kullanıcı olmak yerine, teknolojinin mutfağına girip "ben de buradayım" diyen bir üretici. 
+                Şu an bu sayfayı görüntülüyorsanız, Ceylinsu'nun dijital yolculuğunun ilk ve en önemli adımlarından birine şahitlik ediyorsunuz demektir.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Neler Yapıyorum?</h2>
+            <p>Buraya ilgi alanlarını ekleyebilirsin. Örneğin:</p>
+            <ul>
+                <li>💻 Web Teknolojileri ve Tasarım Dünyası</li>
+                <li>🚀 Yeni teknolojileri öğrenme ve uygulama</li>
+                <li>✨ GitHub üzerinde açık kaynak projeleri inceleme</li>
+                <li>📚 Dijital okuryazarlık ve içerik üretimi</li>
+            </ul>
+        </section>
+
+        <section class="card" style="text-align: center;">
+            <h2>Bağlantıda Kalalım</h2>
+            <p>Projelerim ve benimle ilgili güncellemeler için:</p>
+            <div class="social-links">
+                <a href="https://github.com/ceylinsu" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:email@adresin.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ceylinsu. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        // --- VERSİYON AYARLARI ---
+        // Siteni her güncellediğinde buradaki sayıyı değiştirmen yeterli!
+        const siteVersion = "1.0.0";
+        
+        // Ekrana yazdırma işlemi
+        document.getElementById('version-badge').innerText = "Versiyon: " + siteVersion;
+
+        console.log("Ceylinsu'nun Web Sitesi v" + siteVersion + " yüklendi.");
+    </script>
+
+</body>
+</html>
