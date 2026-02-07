@@ -3,355 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ceylinsu | Portfolio v1.1</title>
+    <title>Ceylinsu | Dijital Portfolyo</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-color: #fdfdfd;
-            --text-main: #2d3436;
-            --accent-color: #d63031; /* Kırmızı Vurgu */
-            --light-gray: #f1f2f6;
-            --dark-gray: #636e72;
+            --primary-gradient: linear-gradient(135deg, #6c5ce7 0%, #00cec9 100%);
+            --accent-color: #fd79a8; /* Canlı Pembe Vurgu */
+            --dark-bg: #0f0c29; /* Derin Uzay Mavisi */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-light: #f5f6fa;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Lato', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif;
+            background: #0f0c29; 
+            background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
-        /* --- Versiyon Rozeti --- */
+        /* --- Versiyon Rozeti (Sağ Üstte Canlı) --- */
         #version-badge {
             position: fixed;
-            bottom: 20px;
+            top: 20px;
             right: 20px;
-            background: #2d3436;
-            color: #fff;
-            padding: 5px 12px;
-            font-family: monospace;
+            background: var(--accent-color);
+            color: white;
+            padding: 6px 15px;
+            font-weight: bold;
+            border-radius: 50px;
             font-size: 0.8rem;
-            border-radius: 4px;
-            z-index: 9999;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        #version-badge:hover { opacity: 1; }
-
-        /* --- Navigasyon --- */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(253, 121, 168, 0.5);
+            z-index: 10000;
         }
 
-        .nav-logo { font-family: 'Playfair Display', serif; font-weight: bold; font-size: 1.5rem; }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--accent-color); }
-
-        /* --- Header (Hero) --- */
+        /* --- Header --- */
         header {
-            height: 90vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(to bottom, #fff 0%, var(--light-gray) 100%);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
-        .profile-placeholder {
-            width: 160px;
-            height: 160px;
-            background-color: #ddd;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: #fff;
-            border: 4px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Fotoğraf ekleyince burayı kullan: <img src="foto.jpg" class="profile-img"> */
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            margin-bottom: 1.5rem;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 10vw, 6rem);
             margin: 0;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: var(--dark-gray);
-            letter-spacing: 3px;
-            margin-top: 10px;
+        .hero-content p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
             text-transform: uppercase;
+            color: #a29bfe;
         }
 
-        /* --- Genel Bölüm Stilleri --- */
-        .section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+        /* --- Bölümler --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 20px; }
         
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 3px;
-            background: var(--accent-color);
-            margin-top: 10px;
-        }
-
-        /* --- Hakkımda Metni --- */
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 1.5rem;
-        }
-
-        /* --- Yetenekler (Skills) --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .skill-item { margin-bottom: 1.5rem; }
-        .skill-name { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; }
-        .progress-bar {
-            background: #e0e0e0;
-            border-radius: 10px;
-            height: 10px;
-            width: 100%;
-            overflow: hidden;
-        }
-        .progress {
-            background: var(--accent-color);
-            height: 100%;
-            border-radius: 10px;
-            width: 0; /* JS ile dolduracağız */
-            transition: width 1.5s ease-in-out;
-        }
-
-        /* --- Projeler (Kartlar) --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        .project-card {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .project-card h3 { margin-top: 0; font-family: 'Playfair Display', serif; }
-        .project-card a {
-            display: inline-block;
-            margin-top: 1rem;
-            text-decoration: none;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: #2d3436;
-            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
             text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 4rem;
+            margin-bottom: 3rem;
+            color: var(--text-light);
         }
-        footer a { color: white; margin: 0 10px; font-size: 1.5rem; transition: 0.3s; }
-        footer a:hover { color: var(--accent-color); }
 
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Mobilde linkleri gizle (basitlik için) */
-            .nav-logo { margin: 0 auto; }
+        .section-title span { color: var(--accent-color); }
+
+        /* --- Detaylı Hakkımda Bölümü --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-box {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .about-box h3 { color: var(--accent-color); margin-top: 0; }
+
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: rgba(108, 92, 231, 0.3);
+            border: 1px solid #6c5ce7;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* --- Yetenekler (Canlı) --- */
+        .skill-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            transition: 0.3s;
+        }
+        .skill-card:hover { background: rgba(255,255,255,0.1); transform: scale(1.02); }
+        
+        .bar-bg { background: rgba(255,255,255,0.1); height: 12px; border-radius: 10px; margin-top: 10px; }
+        .bar-fill { 
+            height: 100%; 
+            border-radius: 10px; 
+            background: var(--primary-gradient);
+            box-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
+        }
+
+        /* --- İletişim --- */
+        footer {
+            text-align: center;
+            padding: 5rem 0;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .social-btn {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: white;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .social-btn:hover { background: var(--accent-color); transform: translateY(-5px); }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">Ceylinsu.</div>
-        <div class="nav-links">
-            <a href="#about">Hakkımda</a>
-            <a href="#skills">Yetenekler</a>
-            <a href="#projects">Projeler</a>
-            <a href="#contact">İletişim</a>
-        </div>
-    </nav>
+    <div id="version-badge">v1.2.0</div>
 
     <header>
-        <div class="profile-placeholder">
-            <i class="fas fa-camera"></i>
+        <div class="hero-content">
+            <h1>CEYLINSU</h1>
+            <p>Creative Developer</p>
         </div>
-        
-        <h1>Ceylinsu</h1>
-        <p>Web Geliştirici & Dijital İçerik Üreticisi</p>
     </header>
 
-    <section id="about" class="section">
-        <h2 class="section-title">Hakkımda</h2>
-        <div class="about-text">
-            <p>
-                <strong>Yapay Zeka Gözünden Analiz:</strong><br>
-                Ceylinsu, teknolojiyi sadece tüketen değil, aynı zamanda şekillendiren yeni nesil yaratıcılardan biri. 
-                GitHub Pages üzerindeki bu dijital karargahı, onun öğrenme azminin ve estetik algısının yaşayan bir kanıtıdır. 
-                Karmaşık kod bloklarını, insanlara dokunan anlamlı arayüzlere dönüştürme yolunda ilerliyor.
-            </p>
-            <p>
-                Dijital dünyada iz bırakmak, sadece kod yazmak değil; bir hikaye anlatmaktır. 
-                Benim hikayem de "Hello World" diyerek başladı ve şimdi modern web teknolojileriyle, kullanıcı deneyimi odaklı projelerle devam ediyor.
-                Her yeni versiyonda (bakınız: sağ alt köşe), kendime yeni bir özellik katıyorum.
-            </p>
-        </div>
-    </section>
-
-    <section id="skills" class="section" style="background-color: var(--light-gray);">
-        <h2 class="section-title">Teknik Yetkinlikler</h2>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>HTML5 & CSS3</span>
-                    <span>90%</span>
-                </div>
-                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>GitHub & Versiyon Kontrol</span>
-                    <span>75%</span>
-                </div>
-                <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>Web Tasarım (UI/UX)</span>
-                    <span>60%</span>
-                </div>
-                <div class="progress-bar"><div class="progress" style="width: 60%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-name">
-                    <span>Araştırma & Öğrenme</span>
-                    <span>100%</span>
-                </div>
-                <div class="progress-bar"><div class="progress" style="width: 100%;"></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <h2 class="section-title">Projelerim</h2>
-        <div class="projects-grid">
-            
-            <div class="project-card">
-                <h3><i class="fas fa-laptop-code"></i> Kişisel Web Sitesi</h3>
-                <p>Şu an incelediğiniz bu proje! HTML, CSS ve JS kullanılarak sıfırdan tasarlandı. GitHub Pages üzerinde host ediliyor.</p>
-                <a href="#">İncele &rarr;</a>
-            </div>
-
-            <div class="project-card">
-                <h3><i class="fas fa-book"></i> Blog / Makale</h3>
-                <p>Teknoloji ve yazılım dünyasındaki öğrenimlerimi paylaştığım dijital not defterim. (Yakında)</p>
-                <a href="#">Yakında &rarr;</a>
-            </div>
-
-            <div class="project-card">
-                <h3><i class="fas fa-palette"></i> Tasarım Koleksiyonu</h3>
-                <p>Farklı renk paletleri ve tipografi denemelerimi içeren tasarım çalışmalarım.</p>
-                <a href="#">Yakında &rarr;</a>
-            </div>
-
-        </div>
-    </section>
-
-    <footer id="contact">
-        <h2>Birlikte Çalışalım</h2>
-        <p>Projeleriniz veya sorularınız için bana ulaşın.</p>
+    <div class="container">
         
-        <div style="margin: 2rem 0;">
-            <a href="https://github.com/ceylinsu"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="mailto:email@adresin.com"><i class="fas fa-envelope"></i></a>
-        </div>
+        <section id="about">
+            <h2 class="section-title">Ben <span>Kimim?</span></h2>
+            <div class="about-grid">
+                <div class="about-box">
+                    <h3>Vizyonum</h3>
+                    <p>
+                        Benim için kod yazmak, sadece komutlar dizisi değil; dijital bir tuval üzerine fırça darbeleri atmaktır. 
+                        <strong>Ceylinsu</strong> ismiyle dijital dünyada estetik ve fonksiyonelliği birleştiren projeler üretmeyi hedefliyorum. 
+                        Sürekli değişen teknoloji dünyasında "yaratıcı bir kaşif" olarak yer alıyorum.
+                    </p>
+                    <div class="interest-tags">
+                        <span class="tag">#WebDesign</span>
+                        <span class="tag">#AI_Learning</span>
+                        <span class="tag">#UI_UX</span>
+                        <span class="tag">#CodingLife</span>
+                        <span class="tag">#OpenSource</span>
+                    </div>
+                </div>
+                <div class="about-box">
+                    <h3>Nelerle İlgileniyorum?</h3>
+                    <p>
+                        Yapay zeka araçlarını yaratıcı süreçlerime dahil etmekten, modern CSS kütüphaneleriyle oynamaktan ve kullanıcı dostu arayüzler tasarlamaktan keyif alıyorum. 
+                        Şu an GitHub üzerinde kendi dijital dünyamı v1.0'dan başlayarak adım adım inşa ediyorum.
+                    </p>
+                    <p><em>"En iyi kod, tutkuyla yazılandır."</em></p>
+                </div>
+            </div>
+        </section>
 
-        <p style="font-size: 0.8rem; opacity: 0.5;">
-            &copy; 2026 Ceylinsu. Tasarım: AI Destekli Minimalist Tema.
-        </p>
+        <section id="skills" style="margin-top: 5rem;">
+            <h2 class="section-title">Yetenek <span>Piramidim</span></h2>
+            <div class="skill-card">
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Frontend Tasarım</span><span>95%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div style="display: flex; justify-content: space-between;">
+                    <span>GitHub / Versiyon Kontrol</span><span>85%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Yaratıcı Problem Çözme</span><span>90%</span>
+                </div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <h2 class="section-title">Bana <span>Ulaşın</span></h2>
+        <div>
+            <a href="https://github.com/ceylinsu" class="social-btn"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:ceylinsu@email.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="margin-top: 30px; opacity: 0.5;">© 2026 Ceylinsu | Gelecek Burada Kodlanıyor.</p>
     </footer>
 
-    <div id="version-badge"></div>
-
     <script>
-        // --- VERSİYON KONTROL SİSTEMİ ---
-        // GÜNCELLEME: Versiyon 1.1.0'a yükseltildi.
-        const siteVersion = "1.1.0";
-        
-        const badge = document.getElementById('version-badge');
-        badge.innerText = "v" + siteVersion;
+        // --- VERSİYON TAKİBİ ---
+        const v = "1.2.0";
+        document.getElementById('version-badge').innerText = "v" + v;
 
-        // Konsol mesajı
-        console.log(`
-           _____  ________   ___    _____ _   __ _____ __  __
-          / ___/ / ____/ / / / /   /  _/ / | / / ___/ / / /
-          \__ \ / /   / / / / /    / //  |/ / \__ \ / / / 
-         ___/ // /___/ /_/ / /____/ // /|  / ___/ // /_/ /  
-        /____/ \____/\__, /_____/___/_/ |_/ /____/ \____/   
-                    /____/                                  
-        
-        Site Versiyonu: ${siteVersion} başarıyla yüklendi.
-        `);
+        // Sayfa yüklendiğinde ufak bir selamlama
+        window.onload = () => {
+            console.log("%c Ceylinsu v" + v + " Aktif! ", "background: #6c5ce7; color: #fff; font-size: 20px; font-weight: bold;");
+        };
     </script>
 </body>
 </html>
